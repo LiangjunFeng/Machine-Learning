@@ -1,9 +1,21 @@
+
+#!/usr/bin/env python3
+# -*-coding: utf-8-*-
+# Author : LiangjunFeng
+# Blog   : http://my.csdn.net/Liangjun_Feng
+# GitHub : https://www.github.com/LiangjunFeng
+# File   : Primary.py
+# Date   : 2017/08/27 11:12
+# Version: 0.1
+# Description: code of Three different linear models
+
+
 '''
 1.using least square method figure out linear regression
 '''
+----------------------------------------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D 
 
 def linear_regression(x,y):     
     def preprocess(x):
@@ -50,9 +62,9 @@ plt.plot([0,1],[a,b])
 
 
 '''
-Newton method figure out logistic regression
+2.Newton method figure out logistic regression
 '''
-
+----------------------------------------------------------------------
 def logistic_regression(x,y,error,n):
     def preprocess(x,y):
         X = np.mat(x)
@@ -138,7 +150,7 @@ plt.plot([0,1],[a,b])
 '''
 3.Linear Discriminant Analysis for binary classification problem
 '''
-
+----------------------------------------------------------------------
 def LDA(x,y):
     def preprocess(x,y):
         i = 0

@@ -1,11 +1,10 @@
-
 #!/usr/bin/env python3
 # -*-coding: utf-8-*-
 # Author : LiangjunFeng
 # Blog   : http://my.csdn.net/Liangjun_Feng
 # GitHub : https://www.github.com/LiangjunFeng
-# File   : Primary.py
-# Date   : 2017/08/27 11:12
+# File   : linear model.py
+# Date   : 2017/08/31 1:57
 # Version: 0.1
 # Description: code of Three different linear models
 

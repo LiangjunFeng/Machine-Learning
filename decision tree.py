@@ -12,6 +12,7 @@ import math
 import copy
 
 # Tree Node class
+---------------------------------------------------------------------
 class TNode:
     def __init__(self,D = None,A = None,Flag = None,Next = None,Label = None,Pre = None):
         self._D = D
@@ -72,7 +73,8 @@ class TNode:
         print()
         
 
-#decision Tree class   
+#decision Tree class 
+---------------------------------------------------------------------
 class decision_Tree:
     def __init__(self,D,A):
         self._root = TNode(D,A)
@@ -300,6 +302,7 @@ class decision_Tree:
                    
         
 '''
+#test code
 D = [[[0,0,0,0,0,0],1,1],[[1,0,1,0,0,0],1,2],[[1,0,0,0,0,0],1,3], 
      [[0,1,0,0,1,1],1,6],[[1,1,0,1,1,1],1,7],[[0,2,2,0,2,1],0,10],
      [[2,1,1,1,0,0],0,14],[[1,1,0,0,1,1],0,15],[[2,0,0,2,2,0],0,16],[[0,0,1,1,1,0],0,17]]

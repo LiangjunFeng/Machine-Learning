@@ -13,25 +13,25 @@ import math
 import numpy
 
 random.seed(0)
-def rand(low,high):   #随机函数
+def rand(low,high):   #random function
     return (high-low)*random.random()+low
 
-def sigmoid(x):       #sigmoid函数
+def sigmoid(x):       #sigmoid function
     return 1.0/(1+math.exp(-x))
 
-def vectorSigmoid(vect):     #对一个向量里的所有值进行sigmoid函数处理
+def vectorSigmoid(vect):     #using sigmoid function processes all the elements in the vector
     length = numpy.shape(vect)[1]
     for i in range(length):
         vect[0,i] = sigmoid(vect[0,i])
     return vect
 
-def makeMatrix(length,bordth,fill = 0.0):    #创建矩阵
+def makeMatrix(length,bordth,fill = 0.0):    #creat a matrix
     mat = []
     for  i in range(length):
         mat.append([fill]*bordth)
     return numpy.mat(mat)
 
-def randfillMatrix(mat,low,high):      #矩阵值的随机填充
+def randfillMatrix(mat,low,high):      #filling the matrix with random number
     length = numpy.shape(mat)[0]
     bordth = numpy.shape(mat)[1]
     for i in range(length):
@@ -39,7 +39,7 @@ def randfillMatrix(mat,low,high):      #矩阵值的随机填充
             mat[i,j] = rand(low,high)
     return mat
 
-def vectorMultiply(vect1,vect2):       #向量相乘得到一个矩阵
+def vectorMultiply(vect1,vect2):       #vector x vector to get a matrix
     length = numpy.shape(vect1)[1]
     bordth = numpy.shape(vect2)[1]
     mat = makeMatrix(length,bordth)
@@ -49,42 +49,42 @@ def vectorMultiply(vect1,vect2):       #向量相乘得到一个矩阵
     return mat
 
 class BPNeuralNetwork:               
-    def __init__(self,inputNodes,hiddenNodes,outputNodes):    #初始化变量
-        self._inputNodes = inputNodes      #输入层结点个数
-        self._hiddenNodes = hiddenNodes    #隐藏层结点个数
-        self._outputNodes = outputNodes    #输出层结点个数
-        self._inputLayer = []              #输入层数据
-        self._hiddenLayer = []             #隐藏层数据
-        self._outputLayer = []             #输出层数据
-        self._inputWeights = []            #输入层到隐藏层连接权
-        self._outputWeights = []           #隐藏层到输出层连接权
-        self._hiddenThreshold = []         #隐藏层激活阈值
-        self._outputThreshold = []         #输出层阈值
+    def __init__(self,inputNodes,hiddenNodes,outputNodes):    #init the variables
+        self._inputNodes = inputNodes      #inputlayer's nodes number
+        self._hiddenNodes = hiddenNodes    #hiddenlayer's nodes number
+        self._outputNodes = outputNodes    #outputlayer's nodes number
+        self._inputLayer = []              #inputlayer's data 
+        self._hiddenLayer = []             #hiddenlayer's data
+        self._outputLayer = []             #outputlayer's data
+        self._inputWeights = []            #the weights from inputlayer to hiddenlayer
+        self._outputWeights = []           #the weighyts from hiddenlayer to outputlayer
+        self._hiddenThreshold = []         #the hiddenlayer's Threshold
+        self._outputThreshold = []         #the outputlayer's Threshold
     
     def setup(self):        
         self._inputLayer = makeMatrix(1,self._inputNodes,1)
         self._hiddenLayer = makeMatrix(1,self._hiddenNodes,1)
-        self._outputLayer = makeMatrix(1,self._outputNodes,1)    #三层网络架构初始赋值
+        self._outputLayer = makeMatrix(1,self._outputNodes,1)    #give inital data to three layers's structure
         
         self._hiddenThreshold = makeMatrix(1,self._hiddenNodes,1)
-        self._outputThreshold = makeMatrix(1,self._outputNodes,1)    #两层激活阈值初始赋值
+        self._outputThreshold = makeMatrix(1,self._outputNodes,1)    #give inital data to two layer
         
         self._inputWeights = makeMatrix(self._inputNodes,self._hiddenNodes)
-        self._outputWeights = makeMatrix(self._hiddenNodes,self._outputNodes)  #创建权重矩阵
+        self._outputWeights = makeMatrix(self._hiddenNodes,self._outputNodes)  #creat weights' matrix
         
         self._inputWeights = randfillMatrix(self._inputWeights,-1,1)
-        self._outputWeights = randfillMatrix(self._outputWeights,-1,1)    #权重矩阵初始随机幅值
+        self._outputWeights = randfillMatrix(self._outputWeights,-1,1)    #give inital random data to weights' matrix
                  
-    def getInput(self,_input):                #将一个输入赋值到输入层
+    def getInput(self,_input):                #load an example to inputlayer
         for i in range(self._inputNodes):
             self._inputLayer[0,i] = _input[i]
     
-    def predict(self,_input):                 #根据输入输出预测值到输出层
+    def predict(self,_input):                 #predict the outputlayer according to the input data
         self.getInput(_input)
         self._hiddenLayer = vectorSigmoid(self._inputLayer*self._inputWeights - self._hiddenThreshold)
         self._outputLayer = vectorSigmoid(self._hiddenLayer*self._outputWeights - self._outputThreshold)
                     
-    def backPropagation(self,y,lRate):       #反响传播更新激活阈值与连接权    
+    def backPropagation(self,y,lRate):       #using backPropagation to reset the weights and threshold   
         G = numpy.multiply(numpy.multiply(self._outputLayer,1-self._outputLayer),y-self._outputLayer)
         self._outputWeights = self._outputWeights + lRate*vectorMultiply(self._hiddenLayer,G)
         self._outputThreshold = self._outputThreshold - lRate*G
@@ -93,7 +93,7 @@ class BPNeuralNetwork:
         self._hiddenThreshold = self._hiddenThreshold - lRate*E
         return float((y-self._outputLayer)*(y-self._outputLayer).T) 
     
-    def fit(self,input_,y_,limit = 10000,accuracy = 0.001,lRate = 0.2):     #拟合数据
+    def fit(self,input_,y_,limit = 10000,accuracy = 0.001,lRate = 0.2):     #using data fit the model
         self.setup()
         num = len(input_)
         error,times = num,1
@@ -107,7 +107,7 @@ class BPNeuralNetwork:
                 i += 1
             times += 1 
                     
-if __name__ == '__main__':           #以异或运算举例
+if __name__ == '__main__':           #taking exclusive_OR as an example
     nn = BPNeuralNetwork(2,7,1)        
     cases = [[0,0],[0,1],[1,0],[1,1]]
     labels = [[0],[1],[1],[0]]        

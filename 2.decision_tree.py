@@ -12,17 +12,16 @@ import math
 import copy
 
 # Tree Node class
----------------------------------------------------------------------
 class TNode:
     def __init__(self,D = None,A = None,Flag = None,Next = None,Label = None,Pre = None):
-        self._D = D
-        self._Flag = Flag
-        self._Label = Label
-        self._Next = []
+        self._D = D                   # the data of the node save
+        self._Flag = Flag             # indicate the node is 'leaf' or 'node' 
+        self._Label = Label           # indicate the node's feature 
+        self._Next = []               # save the link to children
         if Next != None:
             self._Next.append(Next)
-        self._A = A
-        self._Pre = Pre
+        self._A = A                   # the features that the node contains  
+        self._Pre = Pre               # save the link to parents
         
     def get_Pre(self):
         return self._Pre
@@ -63,7 +62,7 @@ class TNode:
     def set_Next(self,Next):
         self._Next.append(Next)
     
-    def printall(self,i):
+    def printall(self,i):                # the node's information
         print('A     ',self._A ,i,self)
         print('Data  ',self._D,len(self._D))
         print('Flag  ',self._Flag)
@@ -74,14 +73,13 @@ class TNode:
         
 
 #decision Tree class 
----------------------------------------------------------------------
 class decision_Tree:
-    def __init__(self,D,A):
-        self._root = TNode(D,A)
+    def __init__(self,D,A):              #init
+        self._root = TNode(D,A)          #the root node
         self.D_Preprocess()
-        decision_Tree.tree_Grow(self._root)         
+        decision_Tree.tree_Grow(self._root)   # grow the tree according to the data        
     
-    def fit(self,D):
+    def fit(self,D):                     #make the tree fit the data
         li,i,Data = [[]],0,copy.deepcopy(D)
         while i < len(Data):
             head = self._root
@@ -96,7 +94,7 @@ class decision_Tree:
             i += 1
         return li                       
         
-    def D_Preprocess(self):
+    def D_Preprocess(self):              #preprocess the data
         i,Data,length = 0,self._root.get_D(),len(self._root.get_D())
         while i < length:
             j = 0
@@ -116,7 +114,7 @@ class decision_Tree:
             i += 1
         self._root.set_D(Data)
     
-    @classmethod 
+    @classmethod                          #find the node's best feature
     def find_label(cls,Node,t):
         i = 0
         A = Node.get_A()
@@ -127,7 +125,7 @@ class decision_Tree:
         return None                        
 
     @classmethod               
-    def Ent(cls,D):
+    def Ent(cls,D):                       #calculate the Gain of the data   
         res,i,length,Data,count = 0,0,len(D),D,0
         while i < length:
             if Data[i][1] > count:
@@ -188,7 +186,7 @@ class decision_Tree:
         return decision_Tree.Ent(D)-decision_Tree.a_Ent(D,a)
     
     @classmethod
-    def most_Class(cls,D):
+    def most_Class(cls,D):                  #find the most class
         i,count = 0,0
         while i < len(D):
             if D[i][1] > count:
@@ -207,7 +205,7 @@ class decision_Tree:
         return j
     
     @classmethod
-    def delete_item(cls,Node,t):
+    def delete_item(cls,Node,t):            #delete the feature and items that have been distributed
         i,Data,A = 0,copy.deepcopy(Node.get_D()),copy.deepcopy(Node.get_A())
         while i < len(Data):
             del(Data[i][0][t])
@@ -217,8 +215,8 @@ class decision_Tree:
         Node.set_A(A)
         return Node
         
-    @classmethod
-    def branches(cls,Node,t):
+    @classmethod 
+    def branches(cls,Node,t):              #grow brances  
         i,count,Data,A = 0,0,copy.deepcopy(Node.get_D()),copy.deepcopy(Node.get_A())
         
         while i < len(Data):
@@ -240,7 +238,7 @@ class decision_Tree:
         return li   
     
     @classmethod
-    def tree_Grow(cls,Node):
+    def tree_Grow(cls,Node):              #build the tree
         Data = copy.deepcopy(Node.get_D())
         if Data == []:
             Node.set_Flag('leaf')
@@ -287,7 +285,7 @@ class decision_Tree:
             i += 1
     
     @staticmethod
-    def printall(Node,i):
+    def printall(Node,i):               #print the tree
         if Node is None:
             return
         else:

@@ -12,7 +12,6 @@
 '''
 1.using least square method figure out linear regression
 '''
-----------------------------------------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -63,7 +62,6 @@ plt.plot([0,1],[a,b])
 '''
 2.Newton method figure out logistic regression
 '''
-----------------------------------------------------------------------
 def logistic_regression(x,y,error,n):
     def preprocess(x,y):
         X = np.mat(x)
@@ -97,7 +95,7 @@ def logistic_regression(x,y,error,n):
         sum1 = sum1.tolist()
         return float(sum1[0][0])
 
-    def Newton(x,y,error,n):
+    def Newton(x,y,error,n):               #Newton method
         X,W,Y = preprocess(x,y)
         i = 1
         while i < n:
@@ -149,7 +147,6 @@ plt.plot([0,1],[a,b])
 '''
 3.Linear Discriminant Analysis for binary classification problem
 '''
-----------------------------------------------------------------------
 def LDA(x,y):
     def preprocess(x,y):
         i = 0
@@ -172,7 +169,7 @@ def LDA(x,y):
         return res
     
     
-    def Sw(X0,X1,u0,u1):
+    def Sw(X0,X1,u0,u1):           # calculate the within-class scatter matrix
         X_0 = np.mat(X0)
         X_1 = np.mat(X1)
         Sw0,i = 0,0

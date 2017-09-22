@@ -171,27 +171,20 @@ def LDA(x,y):
         res = X[0]/i
         return res
     
+    
     def Sw(X0,X1,u0,u1):
         X_0 = np.mat(X0)
         X_1 = np.mat(X1)
         Sw0,i = 0,0
-        temp0 = (X_0 - u0)*((X_0 - u0).T)
-        while i < len(temp0):
-            Sw0 += float(temp0[i,i])
-            i += 1
-        Sw1,i = 0,0
-        temp1 = (X_1 - u1)*((X_1 - u1).T)
-        while i < len(temp1):
-            Sw1 += float(temp1[i,i])
-            i += 1
-        return Sw0+Sw1
-        
-    
-    
+        temp0 = (X_0 - u0).T*((X_0 - u0))
+        temp1 = (X_1 - u1).T*((X_1 - u1))
+        return temp0 + temp1
+       
     X0,X1 = preprocess(x,y)
     u0,u1 = average(X0),average(X1)
+
     SW = Sw(X0,X1,u0,u1)
-    return (SW**(-1)*(u0-u1)).tolist()[0]    
+    return (SW**(-1)*numpy.mat(u0-u1).T).tolist()   
 
 #visiable and output test           
 W = LDA(x,y)
@@ -213,8 +206,7 @@ while i < len(x1):
     i += 1
 print(W)
 
-plt.plot([0,-3*W[0]],[0,-3*W[1]])
-
+plt.plot([0,-W[0][0]],[0,-W[1][0]])
 
 
 

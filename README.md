@@ -1,6 +1,6 @@
 # Machine-Learning
 
-It's a package of machine learning algorithm,
+It's a package of some basic machine learning algorithms,
 
 I will make it step by step,
 

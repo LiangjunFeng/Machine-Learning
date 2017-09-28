@@ -93,6 +93,7 @@ class AdaBoost:
     def __init__(self):              
         self._rootNumber = 0               #the root's number that need to train
         self._decisionRootArray = []       #store the root that have been trained
+        self._alphaList = []               #record the alpha value of every root
     
     @classmethod
     def exp(cls,vector):                   #using exp function process all the items in the vector
@@ -108,6 +109,7 @@ class AdaBoost:
             root = decisionRoot()
             root.buildTree(data,label,distribute)       #make and set up a root
             alpha = 0.5 * math.log((1.0 - root._minError)/max(root._minError,1e-16))
+            self._alphaList.append(alpha)
             expValue = AdaBoost.exp(numpy.multiply(-1*alpha*label,root._estimateLabel))
             distribute = numpy.multiply(distribute,expValue.T)
             distribute = distribute/float(distribute.sum())            #refresh the distribute
@@ -117,17 +119,13 @@ class AdaBoost:
         samples = predictMatrix[0].shape[0]
         result = []
         for i in range(samples):
-            Aclass = 0                     #Record the number of times the classification results are -1
-            Bclass = 0                     #Record the number of times the classification results are 1
+            sign = 0
             for j in range(self._rootNumber):
-                if predictMatrix[j][i,0] == -1:
-                    Aclass += 1
-                else:
-                    Bclass += 1
-            if Aclass > Bclass:
-                result.append(-1)        
+                sign += predictMatrix[j][i,0] * self._alphaList[j]
+            if sign >= 0:
+                result.append(1)        
             else:
-                result.append(1)           #Record the result of the voting
+                result.append(-1)           #record the result of the voting
         return result
                 
     def predict(self,data):                #Integrated voting results are based on many well trained classifiers

@@ -1,6 +1,6 @@
 # Machine-Learning
 
-<font color=#DC143C size=7 face="黑体">It's a package of some basic machine learning algorithms,
+<font color=#0099ff size=7 face="黑体">it's a package of some basic machine learning algorithms,
 
 I will make it step by step,welcome to give me a hand
 

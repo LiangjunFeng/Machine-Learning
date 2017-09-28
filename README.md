@@ -9,10 +9,10 @@ there are more information about the code on my blog
 ![baidu](http://www.baidu.com/img/bdlogo.gif "百度logo") 
 
 -----------------------------------------------------------------------
-              <center>CANTACT CARD
-        Author:     LiangjunFeng
-        Blog:       http://my.csdn.net/Liangjun_Feng
+                              CANTACT CARD
+                        Author:     LiangjunFeng
+                        Blog:       http://my.csdn.net/Liangjun_Feng
         E-mail:     zhumavip@163.com
         School:     zhejiang University
-        Begin from: 2017/8</center>
+        Begin from: 2017/8
 -----------------------------------------------------------------------

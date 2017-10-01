@@ -72,7 +72,7 @@ the result of the py file:
 
 ![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/k_means.png)
 
-## · pca.py
+## · 8.pca.py
 
 I combine the `pca` and K-means inthis file ,but it's even more diificult to test the fuction
 

@@ -24,7 +24,7 @@ the result of the py file:
 
 It's a `Decision Tree` algorithm's file,and actually, I am not so satisfied with the code 
 
-It's not easy to give the visualable result of the algorithm,if you could help me with the
+It's not easy to give the visuable result of the algorithm,if you could help me with the
 
 code and visualable ,it's thankful
 

@@ -85,12 +85,12 @@ the result of the py file:
 ![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/pca.png)
 
 
-#CONTRIBUTOR
+# CONTRIBUTOR
 --------------
 -----------------------------------------------------------------------
                                         CANTACT CARD
                                Author:     LiangjunFeng
-                               Blog:       [http://my.csdn.net/Liangjun_Feng](http://my.csdn.net/Liangjun_Feng)
+                               Blog:       http://my.csdn.net/Liangjun_Feng
                                E-mail:     zhumavip@163.com
                                School:     zhejiang University
                                Begin from: 2017/8

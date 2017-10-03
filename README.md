@@ -68,6 +68,8 @@ The famous clustering algorithm ,`K-means` , It's easy to understand and easy to
 
 I test the code by some dots creating by myself
 
+There are more details in :  [detail document about the algorithms](http://blog.csdn.net/Liangjun_Feng/article/details/78154549)
+
 the result of the py file:
 
 ![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/k_means.png)

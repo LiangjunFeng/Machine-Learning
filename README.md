@@ -84,6 +84,8 @@ than the decision tree , I make some resluts just for reference, if you have bet
 
 help me ,thank you. and the data set I use is [here](https://github.com/LiangjunFeng/Machine-Learning/blob/master/Epileptic%20Seizure%20Recognition%20Data%20Set.csv) 
 
+There are more details in :  [detail document about the algorithms](http://blog.csdn.net/watkinsong/article/details/38536463)
+
 the result of the py file:
 
 ![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/pca.png)

@@ -28,6 +28,8 @@ It's not easy to give the visuable result of the algorithm,if you could help me 
 
 code and visualable ,it's thankful
 
+There are more details in :  [detail document about the algorithms](http://blog.csdn.net/baimafujinji/article/details/51724371)
+
 ## · 3.BP_neural_network.py
 
 The code of the `BP_neural_network`.py is pretty good ,and I test it using the 'xor'

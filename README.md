@@ -92,7 +92,7 @@ the result of the py file:
 
 
 # CONTRIBUTOR
---------------
+
 -----------------------------------------------------------------------
                                         CANTACT CARD
                                Author:     LiangjunFeng

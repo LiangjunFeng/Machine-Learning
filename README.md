@@ -4,7 +4,7 @@ it's a package of some basic machine learning algorithms,
 
 I made it step by step,welcome to give me a hand
 
-there are more information about the code on my blog
+there are more information about the code on my [blog](http://write.blog.csdn.net/postlist)
 
 # INTRODUCTION
 

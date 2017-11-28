@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*-coding: utf-8-*-
+# Author : LiangjunFeng
+# Blog   : http://my.csdn.net/Liangjun_Feng
+# GitHub : https://www.github.com/LiangjunFeng
+# File   : SFA.py
+# Date   : 2017/011/28 10:00
+# Version: 0.1
+# Description: Slowness Feature Analysis,Apply it to reduce pictures' dimension
+
 import skimage.io as io
 import numpy as np
 import math
@@ -8,12 +18,12 @@ from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn import preprocessing
 
-def LoadData(number):
+def LoadData(number):                                     #Load the picture data
     if number == 1:
-        path = '/Users/zhuxiaoxiansheng/Desktop/yale_faces/*.bmp'
+        path = '/Users/zhuxiaoxiansheng/Desktop/yale_faces/*.bmp'        #the data's path
         num =11
     elif number == 2:
-        path = '/Users/zhuxiaoxiansheng/Desktop/orl_faces_full/*.pgm'
+        path = '/Users/zhuxiaoxiansheng/Desktop/orl_faces_full/*.pgm'    #the data's path
         num =10
     pictures = io.ImageCollection(path)
     data = []
@@ -24,7 +34,7 @@ def LoadData(number):
         label.append(int(i/num))
     return np.matrix(data),np.matrix(label).T   
 
-def SplitData(data,label,number,propotion):
+def SplitData(data,label,number,propotion):               #split data to train data set and test data set 
     if number == 1:
         classes = 15
     elif number == 2:
@@ -52,7 +62,7 @@ def SplitData(data,label,number,propotion):
             testLabel.append(np.ravel(label[i]))
     return np.matrix(trainData),np.matrix(trainLabel),np.matrix(testData),np.matrix(testLabel)   
 
-class SFA:
+class SFA:                                                #slow feature analysis class
     def __init__(self):
         self._Z = []
         self._B = []
@@ -101,7 +111,7 @@ class SFA:
     def transfer(self,data):
         return data.dot(self._eigenVector.T)
     
-def show_accuracy(predictLabel,Label):
+def show_accuracy(predictLabel,Label):                            #show the accuracy of the classifier
     Label = np.ravel(Label).tolist()
     predictLabel = predictLabel.tolist()
     count = 0
@@ -111,7 +121,7 @@ def show_accuracy(predictLabel,Label):
     print(count/len(Label))
     
 
-def Faceidentifier( trainDataSimplified,trainLabel,testDataSimplified,testLabel):
+def Faceidentifier( trainDataSimplified,trainLabel,testDataSimplified,testLabel):     #three different kinds of classifers
     print("=====================================")    
     print("GaussianNB")
     clf1 = GaussianNB()

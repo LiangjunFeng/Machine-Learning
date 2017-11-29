@@ -90,18 +90,18 @@ the result of the py file:
 
 ![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/pca.png)
 
-## 9.ICA.py
-I use `ICA` to split the sound mixed with three different voices([baby](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/LDC2017S10.scaled.wav)/[women](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/LDC2017S07.clean.wav)/[women](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/LDC93S1.wav)), firstly I make them the same size, and mix them with each other to create three new sounds,and then,using ICA to get the three original sound . It has a pretty good effect
+## 9.FastICA.py
+I use `FastICA` to split the sound mixed with three different voices([baby](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/LDC2017S10.scaled.wav)/[women](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/LDC2017S07.clean.wav)/[women](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/LDC93S1.wav)), firstly I make them the same size, and mix them with each other to create three new sounds,and then,using ICA to get the three original sound . It has a pretty good effect
 
 you could fun much nore details from here : [detail document about the algorithms](http://blog.csdn.net/liangjun_feng/article/details/78293613)
 
-the mixing sound:
+the mixing sound,and FastICA resault:
 
-![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/orig.png)
+![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/combine.png)
 
-the ICA result:
 
-![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/ICA.png)
+
+
 
 
 # CONTRIBUTOR

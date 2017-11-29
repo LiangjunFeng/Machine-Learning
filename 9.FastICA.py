@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*-coding: utf-8-*-
+# Author : LiangjunFeng
+# Blog   : http://my.csdn.net/Liangjun_Feng
+# GitHub : https://www.github.com/LiangjunFeng
+# File   : FastICA.py
+# Date   : 2017/10/15 6:25
+# Version: 0.1
+# Description: fastICA algorithm ,split voice signals
+
 import wave
 import os
 import numpy as np

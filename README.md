@@ -99,8 +99,14 @@ the mixing sound,and FastICA resault:
 
 ![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/combine.png)
 
+## A10.SFA.py
+SFA,slowness feature analysis,a very useful algorithm in 
 
+you could fun much nore details from here : [detail document about the algorithms](http://blog.csdn.net/liangjun_feng/article/details/78293613)
 
+the mixing sound,and FastICA resault:
+
+![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/combine.png)
 
 
 

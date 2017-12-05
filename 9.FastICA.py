@@ -91,7 +91,7 @@ class ICA:                                      #ICA
         if self._conponent == -1:
             self._conponent = data.shape[0]
         W = getRandomW(data.shape[0],self._conponent)
-        W = eigOrth(W)
+        W = eigOrth(W.T).T
         MAX_T = 10000
         
         for i in range(W.shape[1]):

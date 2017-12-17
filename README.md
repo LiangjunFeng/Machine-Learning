@@ -97,7 +97,7 @@ you could fun much nore details from here : [detail document about the algorithm
 
 the mixing sound,and FastICA resault:
 
-![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/combine.png)
+![](https://github.com/LiangjunFeng/Machine-Learning/blob/master/pic/ICA/Res.png)
 
 ## A10.SFA.py
 SFA,slowness feature analysis,a very useful algorithm in feature engineering.I combine it  with different classifiers to identify the humen face of different dataset,the [yale_faces](https://github.com/LiangjunFeng/Machine-Learning/tree/master/pic/SFA/yale_faces) and [orl_faces](https://github.com/LiangjunFeng/Machine-Learning/tree/master/pic/SFA/orl_faces_full)，you could choose the different dataset by filling '1' or '2'

@@ -13,6 +13,7 @@
 1.using least square method figure out linear regression
 '''
 import numpy as np
+from sklearn.learn_model import LinearRegression
 import matplotlib.pyplot as plt
 
 def linear_regression(x,y):     
